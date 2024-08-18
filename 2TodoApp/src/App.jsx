@@ -6,25 +6,38 @@ import AppInput from './components/AppInput'
 import AppName from './components/AppName'
 import AppItem from './components/AppItem'
 import AppItems from './components/AppItems'
+import WelcomeMessage from './components/WelcomeMessage'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [AppList, setAppList] = useState([])
 
-  const AppList=[{
-    todoName:"milk",
-    todoDate:"10/10/2023"
-  },{
-    todoName:"apple",
-    todoDate:"12/09/2022"
-  }]
+  const handleOnNewItem=(itemName,itemDate)=>{
+    //  let NewTOdoItem=[...AppList,{todoName:itemName,todoDate:itemDate}]
+    //  setAppList(NewTOdoItem);
+    
+    setAppList((currValue)=>{
+      const NewTodoItem=[...currValue,{todoName:itemName,todoDate:itemDate}]
+      return NewTodoItem;
+    })
+    
+  }
+
+  // const AppList=[{
+  //   todoName:"milk",
+  //   todoDate:"10/10/2023"
+  // },{
+  //   todoName:"apple",
+  //   todoDate:"12/09/2022"
+  // }]
 
   return (
     <center>
     <div className="AppContainer">
       <AppName/>
       <div>
-        <AppInput/>
+        <AppInput onNewItem={handleOnNewItem}/>
       </div>
+      <WelcomeMessage todoItems={AppList}/>
       <AppItems AppList={AppList}  />
     </div>
     </center>
