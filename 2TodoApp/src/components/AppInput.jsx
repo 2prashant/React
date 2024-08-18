@@ -28,12 +28,12 @@ const AppInput=({onNewItem})=>{
 
     return (<div className={style.appInputContainer}>
   <div class="mb-3">
-    <input type="text" placeholder="enter TodoApp Name"onChange={handleAppName}/>
+    <input type="text" placeholder="enter TodoApp Name" value={inputAppName} onChange={handleAppName}/>
   </div>
   <div class="mb-3"> 
-    <input type="date" onChange={handleAppDate}/>
+    <input type="date" value={inputAppDate} onChange={handleAppDate}/>
   </div>
-  <button type="button" class="btn btn-info" onClick={handleAddButton}>ADD</button>
+  <button type="button" class="btn btn-info"  onClick={handleAddButton}>ADD</button>
     </div>)
 }
 export default AppInput;
