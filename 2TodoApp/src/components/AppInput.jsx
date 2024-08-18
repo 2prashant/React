@@ -1,17 +1,21 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import style from "./AppInput.module.css"
 const AppInput=({onNewItem})=>{
 
     const [inputAppName,setInputAppName]=useState()
     const [inputAppDate,setinputAppDate]=useState()
+    const noOfupdates=useRef(0)
 
 
      const handleAppName=(event)=>{
         setInputAppName(event.target.value);
+        noOfupdates.current+=1
      }
 
      const handleAppDate=(event)=>{
         setinputAppDate(event.target.value);
+        console.log({noOfupdates})
+        
      }
 
      const handleAddButton=()=>{
