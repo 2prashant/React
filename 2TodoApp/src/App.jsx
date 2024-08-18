@@ -22,6 +22,15 @@ function App() {
     
   }
 
+  const handleDeleteClick=(todoitems)=>{
+    //console.log(todoitems+"deleted");
+    const newTodoItems=AppList.filter((item)=>item.todoName!==todoitems);
+    setAppList(newTodoItems);
+
+    
+
+  }
+
   // const AppList=[{
   //   todoName:"milk",
   //   todoDate:"10/10/2023"
@@ -38,7 +47,7 @@ function App() {
         <AppInput onNewItem={handleOnNewItem}/>
       </div>
       <WelcomeMessage todoItems={AppList}/>
-      <AppItems AppList={AppList}  />
+      <AppItems AppList={AppList}  onDeleteClick={handleDeleteClick} />
     </div>
     </center>
   )
